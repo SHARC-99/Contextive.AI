@@ -1,0 +1,6 @@
+@Contextive.AI_HostAddress = http://localhost:5286
+
+GET {{Contextive.AI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

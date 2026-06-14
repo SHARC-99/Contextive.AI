@@ -1,0 +1,17 @@
+# Visual Studio and MSBuild local workspace cache
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Backend compiler outputs and intermediate folders
+[Bb]in/
+[Oo]bj/
+appsettings.Development.json
+
+# Frontend package installations and Angular build cache
+node_modules/
+.angular/
+dist/
+/out-tsc/

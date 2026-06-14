@@ -1,0 +1,199 @@
+Manager: Hey, do you have a few minutes? I want to go through the project user stories before tomorrow’s sprint planning.
+
+Tech Lead: Sure. I’ve already grouped the stories module-wise. Where do you want to start?
+
+Manager: Let’s start from the core functionality. What exactly is the primary user flow?
+
+Tech Lead: The main idea is simple — user uploads a meeting recording, document, or conversation file, and the system uses AI to generate summaries, user stories, and test cases.
+
+Manager: Okay, so upload is the entry point.
+
+Tech Lead: Exactly.
+
+Manager: What’s the first user story then?
+
+Tech Lead:
+“As a user, I want to upload audio, video, or text files so that the AI can process them.”
+
+Manager: Supported formats?
+
+Tech Lead: MP3, WAV, MP4, PDF, DOCX, and TXT for Phase 1.
+
+Manager: Good. What happens after upload?
+
+Tech Lead: The backend sends the file for processing. If it’s audio or video, we first transcribe it using AI speech-to-text.
+
+Manager: So another user story would be transcription.
+
+Tech Lead: Right.
+
+Tech Lead:
+“As a user, I want uploaded meetings to be automatically transcribed so that I can extract readable conversation text.”
+
+Manager: Makes sense. Are we storing the transcript?
+
+Tech Lead: Yes. Transcript gets saved in the database along with metadata like upload date, filename, and processing status.
+
+Manager: What about progress indicators? Large files may take time.
+
+Tech Lead: Already covered.
+
+Tech Lead:
+“As a user, I want to see the upload and processing status so that I know whether my file is still being analyzed.”
+
+Manager: Nice. Real-time updates?
+
+Tech Lead: Probably SignalR later. For now, polling should work.
+
+Manager: After transcription, what does AI generate?
+
+Tech Lead: Three major outputs initially:
+
+Summary
+User stories
+Test cases
+
+Manager: Let’s discuss summaries first.
+
+Tech Lead:
+“As a user, I want AI-generated summaries from meetings so that I can quickly understand discussion outcomes.”
+
+Manager: Different summary types?
+
+Tech Lead: Yes:
+
+Short summary
+Detailed summary
+Action items only
+
+Manager: I like the action-items-only idea. Product managers will use that heavily.
+
+Tech Lead: Exactly.
+
+Manager: Now the important part — user stories.
+
+Tech Lead:
+“As a business analyst or product manager, I want the AI to generate Agile user stories from conversations so that requirements documentation becomes faster.”
+
+Manager: Are we generating proper format?
+
+Tech Lead: Yes. Standard format:
+“As a [role], I want [feature], so that [benefit].”
+
+Manager: Acceptance criteria too?
+
+Tech Lead: That’s planned in Phase 2.
+
+Manager: What about QA support?
+
+Tech Lead: We have a separate story for that.
+
+Tech Lead:
+“As a QA engineer, I want AI-generated test cases from discussions so that manual test design effort is reduced.”
+
+Manager: Functional cases only?
+
+Tech Lead: Initially yes. Later we can add negative scenarios and API validations.
+
+Manager: Good. What about searching old conversations?
+
+Tech Lead: Covered.
+
+Tech Lead:
+“As a user, I want to search previous uploads and generated outputs so that I can quickly retrieve historical information.”
+
+Manager: Full-text search?
+
+Tech Lead: Yes.
+
+Manager: Are we building some kind of AI chat over uploaded files?
+
+Tech Lead: Yes, that’s one of the strongest features.
+
+Tech Lead:
+“As a user, I want to ask questions about uploaded documents or meetings so that I can retrieve contextual answers instantly.”
+
+Manager: So basically contextual AI chat.
+
+Tech Lead: Correct. RAG architecture.
+
+Manager: Authentication stories?
+
+Tech Lead: Standard ones.
+
+Tech Lead:
+
+User registration
+Login
+Forgot password
+JWT authentication
+
+Manager: Social login?
+
+Not in initial release.
+
+Manager: How are we handling storage?
+
+Tech Lead: Files go to cloud storage. Metadata stays in SQL Server.
+
+Manager: Azure or AWS?
+
+Tech Lead: Depends on deployment cost approval.
+
+Manager: Any technical concerns?
+
+Tech Lead: Biggest concern is processing long videos. Token limits and AI cost can increase fast.
+
+Manager: Optimization strategy?
+
+Tech Lead: Chunking + summarization pipeline.
+
+Manager: What about admin functionality?
+
+Tech Lead: Minimal for Phase 1.
+
+Tech Lead:
+“As an admin, I want to monitor AI usage and uploaded files so that operational cost and misuse can be controlled.”
+
+Manager: Sounds good. How are you planning the sprint breakdown?
+
+Tech Lead:
+
+Sprint 1
+
+Authentication
+File upload
+Database schema
+
+Sprint 2
+
+Transcription pipeline
+AI summaries
+
+Sprint 3
+
+User story generation
+Test case generation
+Search
+
+Sprint 4
+
+AI chat
+Export functionality
+Admin dashboard
+
+Manager: Timeline realistic?
+
+Tech Lead: If AI integration behaves properly, yes.
+
+Manager: “If” is the important word there.
+
+Tech Lead: Exactly. Prompt tuning always takes longer than expected.
+
+Manager: Alright. Prepare detailed acceptance criteria before sprint planning.
+
+Tech Lead: Sure. I’ll also create API contracts and workflow diagrams.
+
+Manager: Perfect. Let’s review again tomorrow with the QA team included.
+
+Tech Lead: Done. I’ll schedule the session.
