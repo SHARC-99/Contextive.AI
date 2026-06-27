@@ -20,7 +20,7 @@ export class UploadComponent {
   isCopied: boolean = false;
   dragOver: boolean = false;
 
-  private apiUrl = 'http://localhost:5286/Upload';
+  private apiUrl = 'https://contextive-ai.onrender.com/Upload';
 
   constructor(
     private http: HttpClient,
